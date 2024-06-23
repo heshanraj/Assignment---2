@@ -107,13 +107,13 @@ def create_task(request):
             description=description,
             location=location,
             organiser=organiser,  # Ensure organiser is set
-            assigned_to_id=int(assigned_to_id)
+            assigned_to_id=int(assigned_to_id) # set the user
         )
 
         return redirect('category_list')
     else:
-        categories = Category.objects.all()
-        users = User.objects.all()
+        categories = Category.objects.all() # get the categories
+        users = User.objects.all() #get the users
         return render(request, 'create_task.html', {'categories': categories, 'users': users})
 
 
@@ -121,7 +121,7 @@ def create_task(request):
 @login_required
 @admin_required
 def update_task(request, task_id):
-    task = Task.objects.get(pk=task_id)
+    task = Task.objects.get(pk=task_id) # get task by ID
     if request.method == 'POST':
         task.name = request.POST.get('name')
         task.start_date = request.POST.get('start_date')
@@ -131,9 +131,9 @@ def update_task(request, task_id):
         task.location = request.POST.get('location')
 
         # Get assigned_to user ID and validate it
-        assigned_to_id = request.POST.get('assigned_to')
+        assigned_to_id = request.POST.get('assigned_to') #gets the assigned users ID
         if assigned_to_id:
-            task.assigned_to_id = int(assigned_to_id)
+            task.assigned_to_id = int(assigned_to_id) # then it will update the assigned user
         else:
             messages.error(request, "Assigned user must be provided.")
             return render(request, 'update_task.html', {'task': task, 'users': User.objects.all()})
@@ -150,7 +150,7 @@ def update_task(request, task_id):
 @login_required
 @admin_required
 def category_list(request):
-    categories = Category.objects.all()
+    categories = Category.objects.all() #gets all categories
     return render(request, 'category_list.html', {'categories': categories})
 
 # A vuew to create a new category for admins
@@ -158,8 +158,8 @@ def category_list(request):
 @admin_required
 def create_category(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        Category.objects.create(name=name)
+        name = request.POST.get('name') # gets the category name from the pOST data
+        Category.objects.create(name=name) # creates the new category
         return redirect('category_list')
     return render(request, 'create_category.html')
 
@@ -168,11 +168,11 @@ def create_category(request):
 @admin_required
 def delete_category(request, category_id):
     category = Category.objects.get(pk=category_id)
-    if category.task_set.exists():
+    if category.task_set.exists(): # checks if the category contains any exisitng tasks
         messages.error(
             request, "You cannot delete this category as it contains tasks.")
     else:
-        category.delete()
+        category.delete() # deletes the category
         messages.success(request, "Category deleted successfully.")
     return redirect('category_list')
 
@@ -182,44 +182,44 @@ def delete_category(request, category_id):
 @admin_required
 def category_tasks(request, category_id):
     category = get_object_or_404(Category, pk=category_id)
-    tasks = category.task_set.all()
+    tasks = category.task_set.all() # gets all task within the category
     return render(request, 'category_tasks.html', {'category': category, 'tasks': tasks})
 
 # VIEW TO display a cHART of pending tasks in each category admins only
 @login_required
 @admin_required
 def task_chart(request):
-    categories = Category.objects.all()
-    pending_counts = {}
+    categories = Category.objects.all() # gets all categories
+    pending_counts = {} # a dict. to hold the pending task counts
     for category in categories:
         pending_counts[category.name] = Task.objects.filter(
             category=category,
             start_date__gt=timezone.now()
-        ).count()
-    return render(request, 'task_chart.html', {'pending_counts': pending_counts})
+        ).count() # it counts the no. of pending tasks in each category
+    return render(request, 'task_chart.html', {'pending_counts': pending_counts}) #renders thea task chart page
 
 
 # View to display tasks within a specific category for the logged-in user. NO MORE ADMIN :(
 @login_required
 def category_task(request, category_id):
-    category = get_object_or_404(Category, pk=category_id)
-    tasks = Task.objects.filter(category=category).order_by('-priority')
-    return render(request, 'category_tasks.html', {'category': category, 'tasks': tasks})
+    category = get_object_or_404(Category, pk=category_id) # get the category by its ID or gives a 404 error
+    tasks = Task.objects.filter(category=category).order_by('-priority')  #arranges the task in order of the priority
+    return render(request, 'category_tasks.html', {'category': category, 'tasks': tasks}) # it will render the category task page
 
 #Vuew to display tasks assigned to the logged-in user
 @login_required
 def user_task_list(request):
-    user = request.user
-    tasks = Task.objects.filter(assigned_to=user).order_by('-priority')
-    categories = Category.objects.all()
-    return render(request, 'user_task_list.html', {'tasks': tasks, 'categories': categories})
+    user = request.user # gets theloggged in user 
+    tasks = Task.objects.filter(assigned_to=user).order_by('-priority') # arrnages the task in order of its priority
+    categories = Category.objects.all() # gets all categories
+    return render(request, 'user_task_list.html', {'tasks': tasks, 'categories': categories}) #rnders the user task list apge
 
 # View to mark a task as complete or incomplete
 @login_required
 def complete_task(request, task_id):
-    task = get_object_or_404(Task, pk=task_id)
+    task = get_object_or_404(Task, pk=task_id) # it either gets the task by its respective ID or gives a 404 error
     if request.method == 'POST':
-        task.is_completed = not task.is_completed
-        task.save()
-    return redirect('user_task_list')
+        task.is_completed = not task.is_completed it toggles the status of the completion
+        task.save() # saves the task
+    return redirect('user_task_list') # it will redirect the user task list
 
