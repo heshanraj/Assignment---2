@@ -46,7 +46,6 @@
       </table>
     </div>
 
-    <!-- Modal for task details -->
     {% for task in tasks %}
       <div class="modal fade" id="taskModal_{{ task.id }}" tabindex="-1" role="dialog" aria-labelledby="taskModalLabel_{{ task.id }}" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -74,7 +73,6 @@
       </div>
     {% endfor %}
 
-    <!-- JavaScript to update countdown timers and sorting -->
     <script>
       function sortByPriority() {
         var table, rows, switching, i, x, y, shouldSwitch;
@@ -119,7 +117,6 @@
       setInterval(updateCountdownTimers, 1000);
     </script>
 
-    <!-- Bootstrap JS (Optional - for certain Bootstrap features like modals) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
