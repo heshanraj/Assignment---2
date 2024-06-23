@@ -123,20 +123,27 @@ def create_task(request):
 def update_task(request, task_id):
     task = Task.objects.get(pk=task_id)
     if request.method == 'POST':
-        # Update task fields based on form data
         task.name = request.POST.get('name')
         task.start_date = request.POST.get('start_date')
         task.end_date = request.POST.get('end_date')
         task.priority = request.POST.get('priority')
         task.description = request.POST.get('description')
         task.location = request.POST.get('location')
-        task.organiser = request.POST.get('organiser')
-        task.assigned_to_id = request.POST.get('assigned_to')
+
+        # Get assigned_to user ID and validate it
+        assigned_to_id = request.POST.get('assigned_to')
+        if assigned_to_id:
+            task.assigned_to_id = int(assigned_to_id)
+        else:
+            messages.error(request, "Assigned user must be provided.")
+            return render(request, 'update_task.html', {'task': task, 'users': User.objects.all()})
+
         task.save()
         return redirect('category_list')
     else:
-        # Render the update task page with task data
-        return render(request, 'update_task.html', {'task': task})
+        # Render the update task page with task data and users list
+        return render(request, 'update_task.html', {'task': task, 'users': User.objects.all()})
+
 
 
 #view to display a list of categories, just for admins
