@@ -87,7 +87,7 @@ To run tests using pytest, follow these steps:
     ```bash
     pytest
     ```
-
+* Please make sure you do it in the virtual environment *
 ### Usage
 
 To get started with using the application, follow these steps:
