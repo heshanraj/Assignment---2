@@ -58,18 +58,19 @@ Follow these steps to set up and run the project locally.
         ```
 
 4. **Install the required packages:**
+* You need to enter into the Main directory which is Assignment ---2-main, if you are already inside it then its perfect.
 
     ```sh
     pip install -r requirements.txt
     ```
 
-5. **Apply migrations:**
+6. **Apply migrations:**
 
     ```sh
     python manage.py migrate
     ```
 
-6. **Create a superuser:**
+7. **Create a superuser:**
 
     ```sh
     python manage.py createsuperuser
@@ -77,13 +78,13 @@ Follow these steps to set up and run the project locally.
 
     Follow the prompts to set up the superuser account.
 
-7. **Run the development server:**
+8. **Run the development server:**
 
     ```sh
     python manage.py runserver
     ```
 
-8. **Access the application:**
+9. **Access the application:**
 
     Open your web browser and go to `http://127.0.0.1:8000`.
 
