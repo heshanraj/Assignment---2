@@ -1,6 +1,6 @@
-# Django Task Manager
+# Project Management Tool
 
-This is a Django-based task manager that allows administrators to manage categories and tasks, and assign tasks to users. Regular users can view and complete their assigned tasks.
+This is a Django-based Project Manager Tool that allows administrators to manage categories and tasks, and assign tasks to users. Regular users can view and complete their assigned tasks.
 
 ## Features
 
@@ -11,6 +11,19 @@ This is a Django-based task manager that allows administrators to manage categor
 - Task Completion and Status Tracking
 - User-Specific Task View
 - HTTP-based client-server communication for handling requests and responses
+
+## Target Audience
+
+The Django Task Manager platform is designed to cater to a diverse audience interested in task and project management:
+
+- **Administrators**: Oversee and manage tasks, categories, and user assignments. Ensure the smooth operation of the task management system.
+- **Project Managers**: Coordinate and assign tasks to team members, track task progress, and ensure project deadlines are met.
+- **Team Members**: View and complete tasks assigned to them, providing updates on task status and collaborating with other team members.
+- **Students**: Manage personal projects and study schedules, learning how to organize tasks and manage time effectively.
+- **Freelancers**: Keep track of client projects, deadlines, and deliverables, ensuring efficient task management and communication with clients.
+- **Educators**: Assign tasks and projects to students, monitor progress, and provide feedback on completed tasks.
+- **Small Business Owners**: Organize business tasks, delegate responsibilities to employees, and monitor task completion and productivity.
+- **Task Enthusiasts**: Anyone interested in enhancing their productivity through effective task management and organization.
 
 ## Getting Started
 
@@ -105,20 +118,6 @@ To get started with using the application, follow these steps:
 
 4. **Regular User:**
     - Log back into the regular user account to view and complete the assigned tasks.
-
-## Target Audience
-
-The Django Task Manager platform is designed to cater to a diverse audience interested in task and project management:
-
-- **Administrators**: Oversee and manage tasks, categories, and user assignments. Ensure the smooth operation of the task management system.
-- **Project Managers**: Coordinate and assign tasks to team members, track task progress, and ensure project deadlines are met.
-- **Team Members**: View and complete tasks assigned to them, providing updates on task status and collaborating with other team members.
-- **Students**: Manage personal projects and study schedules, learning how to organize tasks and manage time effectively.
-- **Freelancers**: Keep track of client projects, deadlines, and deliverables, ensuring efficient task management and communication with clients.
-- **Educators**: Assign tasks and projects to students, monitor progress, and provide feedback on completed tasks.
-- **Small Business Owners**: Organize business tasks, delegate responsibilities to employees, and monitor task completion and productivity.
-- **Task Enthusiasts**: Anyone interested in enhancing their productivity through effective task management and organization.
-
   
 ## Networking Features
 
