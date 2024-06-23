@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Task</title>
+  <title>Create Category</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body {
@@ -13,53 +13,13 @@
 </head>
 <body>
   <div class="container mt-5 text-center">
-    <h2>Create Task</h2>
+    <h2>Create Category</h2>
     <br>
-    <form method="post" action="{% url 'create_task' %}" class="w-50 mx-auto">
+    <form method="post" action="{% url 'create_category' %}" class="w-50 mx-auto">
       {% csrf_token %}
       <div class="form-group">
-        <label for="name">Task Name</label>
+        <label for="name">Category Name</label>
         <input type="text" class="form-control" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="category">Category</label>
-        <select class="form-control" id="category" name="category" required>
-          {% for category in categories %}
-          <option value="{{ category.id }}">{{ category.name }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="assigned_to">Assign To</label>
-        <select class="form-control" id="assigned_to" name="assigned_to" required>
-          {% for user in users %}
-          <option value="{{ user.id }}">{{ user.username }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="start_date">Start Date</label>
-        <input type="datetime-local" class="form-control" id="start_date" name="start_date" required>
-      </div>
-      <div class="form-group">
-        <label for="end_date">End Date</label>
-        <input type="datetime-local" class="form-control" id="end_date" name="end_date" required>
-      </div>
-      <div class="form-group">
-        <label for="priority">Priority</label>
-        <input type="number" class="form-control" id="priority" name="priority" required>
-      </div>
-      <div class="form-group">
-        <label for="description">Description</label>
-        <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
-      </div>
-      <div class="form-group">
-        <label for="location">Location</label>
-        <input type="text" class="form-control" id="location" name="location">
-      </div>
-      <div class="form-group">
-        <label for="organizer">Organizer</label>
-        <input type="text" class="form-control" id="organizer" name="organizer">
       </div>
       <button type="submit" class="btn btn-primary">Create</button>
       <a href="{% url 'category_list' %}" class="btn btn-secondary ml-2">Back to Categories</a>
