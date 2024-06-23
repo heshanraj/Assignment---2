@@ -1,4 +1,3 @@
-# brain/tests/test_views.py
 import pytest
 from django.urls import reverse
 from django.contrib.auth.models import User
