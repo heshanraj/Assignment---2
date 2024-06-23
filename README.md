@@ -12,15 +12,6 @@ This is a Django-based task manager that allows administrators to manage categor
 - User-Specific Task View
 - HTTP-based client-server communication for handling requests and responses
 
-## Networking Features
-
-This project uses HTTP for communication between the client (web browser) and the server. This includes:
-
-- Handling user authentication and session management.
-- Serving dynamic web pages based on user roles (admin or regular user).
-- Processing form submissions for task and category management.
-- Fetching and displaying data from the server based on user actions.
-
 ## Getting Started
 
 Follow these steps to set up and run the project locally.
@@ -83,6 +74,20 @@ Follow these steps to set up and run the project locally.
 
     Open your web browser and go to `http://127.0.0.1:8000`.
 
+# Running Tests
+
+To run tests using pytest, follow these steps:
+
+1. Install pytest if you haven't already:
+    ```bash
+    pip install pytest
+    ```
+
+2. Run pytest:
+    ```bash
+    pytest
+    ```
+
 ### Usage
 
 To get started with using the application, follow these steps:
@@ -100,6 +105,35 @@ To get started with using the application, follow these steps:
 
 4. **Regular User:**
     - Log back into the regular user account to view and complete the assigned tasks.
+
+## Target Audience
+
+The Django Task Manager platform is designed to cater to a diverse audience interested in task and project management:
+
+- **Administrators**: Oversee and manage tasks, categories, and user assignments. Ensure the smooth operation of the task management system.
+- **Project Managers**: Coordinate and assign tasks to team members, track task progress, and ensure project deadlines are met.
+- **Team Members**: View and complete tasks assigned to them, providing updates on task status and collaborating with other team members.
+- **Students**: Manage personal projects and study schedules, learning how to organize tasks and manage time effectively.
+- **Freelancers**: Keep track of client projects, deadlines, and deliverables, ensuring efficient task management and communication with clients.
+- **Educators**: Assign tasks and projects to students, monitor progress, and provide feedback on completed tasks.
+- **Small Business Owners**: Organize business tasks, delegate responsibilities to employees, and monitor task completion and productivity.
+- **Task Enthusiasts**: Anyone interested in enhancing their productivity through effective task management and organization.
+
+  
+## Networking Features
+
+This project uses HTTP for communication between the client (web browser) and the server. This includes:
+
+- Handling user authentication and session management.
+- Serving dynamic web pages based on user roles (admin or regular user).
+- Processing form submissions for task and category management.
+- Fetching and displaying data from the server based on user actions.
+
+  ## Database Usage
+
+- **User Data**: Stores user account information for authentication and personalization.
+- **Task Data**: Stores details of tasks including name, category, assigned user, start and end dates, priority, and completion status.
+- **Category Data**: Stores task categories for better organization and management.
 
 ### Project Structure
 
