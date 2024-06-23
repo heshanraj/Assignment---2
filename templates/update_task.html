@@ -49,7 +49,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-      // Function to validate end date is after start date
+     
       function validateEndDate() {
         var startDate = new Date(document.getElementById('start_date').value)
         var endDate = new Date(document.getElementById('end_date').value)
@@ -62,10 +62,10 @@
         }
       }
 
-      // Add task listener to form submission for validation
+      
       document.getElementById('updatetaskForm').addtaskListener('submit', function (task) {
         if (!validateEndDate()) {
-          task.prtaskDefault() // Prtask form submission if validation fails
+          task.prtaskDefault() 
         }
       })
     </script>
