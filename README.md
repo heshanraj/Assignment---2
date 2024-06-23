@@ -36,8 +36,7 @@ Follow these steps to set up and run the project locally.
 1. **Clone the repository:**
 
     ```sh
-    git clone https://github.com/yourusername/django-task-manager.git
-    cd django-task-manager
+    git clone https://github.com/heshanraj/Assignment---2.git
     ```
 
 2. **Create a virtual environment:**
