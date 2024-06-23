@@ -25,12 +25,6 @@ This project uses HTTP for communication between the client (web browser) and th
 
 Follow these steps to set up and run the project locally.
 
-### Prerequisites
-
-- Python 3.x
-- Django 3.x or higher
-- Virtualenv (optional but recommended)
-
 ### Installation
 
 1. **Clone the repository:**
