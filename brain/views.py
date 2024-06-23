@@ -219,7 +219,7 @@ def user_task_list(request):
 def complete_task(request, task_id):
     task = get_object_or_404(Task, pk=task_id) # it either gets the task by its respective ID or gives a 404 error
     if request.method == 'POST':
-        task.is_completed = not task.is_completed it toggles the status of the completion
+        task.is_completed = not task.is_completed #it toggles the status of the completion
         task.save() # saves the task
     return redirect('user_task_list') # it will redirect the user task list
 
