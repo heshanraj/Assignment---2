@@ -1,9 +1,6 @@
-# Assignment---2
-Project task manager
+# Django Task Manager
 
-# Task Management System
-
-This is a Django-based task management system that allows administrators to manage categories and tasks and assigns tasks to users. Regular users can view and complete their assigned tasks.
+This is a Django-based task manager that allows administrators to manage categories and tasks, and assign tasks to users. Regular users can view and complete their assigned tasks.
 
 ## Features
 
@@ -13,6 +10,16 @@ This is a Django-based task management system that allows administrators to mana
 - Task Assignment to Users
 - Task Completion and Status Tracking
 - User-Specific Task View
+- HTTP-based client-server communication for handling requests and responses
+
+## Networking Features
+
+This project uses HTTP for communication between the client (web browser) and the server. This includes:
+
+- Handling user authentication and session management.
+- Serving dynamic web pages based on user roles (admin or regular user).
+- Processing form submissions for task and category management.
+- Fetching and displaying data from the server based on user actions.
 
 ## Getting Started
 
@@ -29,8 +36,8 @@ Follow these steps to set up and run the project locally.
 1. **Clone the repository:**
 
     ```sh
-    git clone https://github.com/yourusername/task-management-system.git
-    cd task-management-system
+    git clone https://github.com/yourusername/django-task-manager.git
+    cd django-task-manager
     ```
 
 2. **Create a virtual environment:**
@@ -85,14 +92,21 @@ Follow these steps to set up and run the project locally.
 
 ### Usage
 
-- **Admin:**
-  - Login as the superuser.
-  - Manage categories and tasks.
-  - Assign tasks to users.
+To get started with using the application, follow these steps:
 
-- **Regular User:**
-  - Register and log in.
-  - View and complete assigned tasks.
+1. **Register a Regular User:**
+    - Visit the registration page and create a new user account.
+    - Log out of this account after registration.
+
+2. **Log in as Superuser:**
+    - Use the superuser account created during setup to log in.
+
+3. **Assign Tasks:**
+    - Navigate to the task management section and assign tasks to the newly created user.
+    - This step is necessary because when a regular user creates an account, their information is stored in the database, allowing the admin to manage and assign tasks to them. 
+
+4. **Regular User:**
+    - Log back into the regular user account to view and complete the assigned tasks.
 
 ### Project Structure
 
@@ -101,33 +115,4 @@ Follow these steps to set up and run the project locally.
 - `urls.py` - Maps URLs to views.
 - `templates/` - Directory for HTML templates.
 
-### Files in `templates/` Directory
 
-- `category_list.html`
-- `category_tasks.html`
-- `completed_tasks.html`
-- `create_category.html`
-- `create_task.html`
-- `home.html`
-- `login.html`
-- `mark_task_complete.html`
-- `register.html`
-- `task_chart.html`
-- `update_task.html`
-- `user_task_list.html`
-
-### Contributing
-
-If you want to contribute to this project, please fork the repository and create a pull request with your changes. Make sure to add detailed information about your changes in the pull request.
-
-### License
-
-This project is licensed under the MIT License.
-
-### Contact
-
-For any questions or suggestions, please contact [your-email@example.com].
-
----
-
-Thank you for using the Task Management System!
